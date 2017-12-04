@@ -47,3 +47,9 @@ defmodule Day4 do
   end
 
 end
+
+IO.puts "Part 1"
+IO.puts Day4.valid_phrases_part_1("passphrases.txt")
+
+IO.puts "Part 2"
+IO.puts Day4.valid_phrases_part_2("passphrases.txt")

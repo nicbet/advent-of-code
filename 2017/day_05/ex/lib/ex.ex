@@ -1,4 +1,13 @@
-defmodule Day5 do
+defmodule Ex do
+  import ExProf.Macro
+
+  def run do
+    inp = read_input_from_file("input.txt")
+    profile do
+      move_over_input_part2(0, 0, inp)
+    end
+  end
+
   @doc """
   Read the input specific to the Day 5 puzzle format
   """
@@ -45,14 +54,5 @@ defmodule Day5 do
         move_over_input_part2(next_pos, counter, new_input)
     end
   end
+
 end
-
-# Main program
-IO.puts("Reading instructions from input.txt...")
-input = Day5.read_input_from_file("input.txt")
-
-IO.puts("Calculating solution to part 1...")
-IO.inspect Day5.move_over_input_part1(0, 0, input)
-
-IO.puts("Calculating solution to part 2...")
-IO.inspect Day5.move_over_input_part2(0, 0, input)

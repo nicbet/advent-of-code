@@ -1,15 +1,26 @@
 defmodule Day5 do
+  @moduledoc """
+  Solutions for Day 5
+  """
+  
   @doc """
   Read the input specific to the Day 5 puzzle format
   """
   def read_input_from_file(source_file) do
-    list =
-      source_file
-      |> File.stream!
-      |> Enum.to_list
-      |> Enum.map(&String.trim/1)
-      |> Enum.map(&String.to_integer/1)
+    source_file
+    |> read_into_integer_list
+    |> make_index_map
+  end
 
+  defp read_into_integer_list(source_file) do
+    source_file
+    |> File.stream!
+    |> Enum.to_list
+    |> Enum.map(&String.trim/1)
+    |> Enum.map(&String.to_integer/1)
+  end
+
+  defp make_index_map(list) do
     0..length(list)-1
     |> Stream.zip(list)
     |> Enum.into(%{})
